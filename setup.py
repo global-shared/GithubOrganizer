@@ -41,7 +41,7 @@ setup(
 
   install_requires=[
     'Beaker>=1.11.0,<2',
-    'celery>=5.2.3,<6',
+    'celery>=5.2.0,<5.2.3',
     'click>=8.0.3,<9.0',
     'cryptography>=2.9.2<3',
     'github3.py>=1.3.0,<2',
