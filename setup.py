@@ -43,7 +43,7 @@ setup(
     'Beaker>=1.11.0,<2',
     'celery>=5.2.3,<6',
     'click>=8.0.3,<9.0',
-    'cryptography>=36.0.1<37.0',
+    'cryptography>=2.9.2<3',
     'github3.py>=3.0.0,<4',
     'github3apps.py>=0.2.2,<0.3',
     'pyjwt>=2.3.0,<3',
