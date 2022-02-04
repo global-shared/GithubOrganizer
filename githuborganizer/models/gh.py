@@ -248,8 +248,11 @@ class Repository:
             allow_rebase_merge = organizer_settings.get('merges', {}).get('allow_rebase_merge', None),
             allow_squash_merge = organizer_settings.get('merges', {}).get('allow_squash_merge', None),
             allow_merge_commit = organizer_settings.get('merges', {}).get('allow_merge_commit', None),
-            delete_branch_on_merge = organizer_settings.get('delete_branch_on_merge', None)
+            delete_branch_on_merge = organizer_settings.get('test', {}).get('delete_branch_on_merge', None)
         )
+
+    def delete_branch_on_merge(self):
+        organizer_settings = self.get_organizer_settings()
 
     def update_default_branch(self):
         org_settings = self.get_organizer_settings()
@@ -304,10 +307,15 @@ class Repository:
         elif 'repositories' not in self.organization.configuration:
             '''Convert from the old style configuration to the current version'''
             settings = copy(self.organization.configuration)
+            settings['test'] = {}
             settings['merges'] = {}
             settings['features'] = {}
             if 'labels' in settings:
                 del settings['labels']
+            for test in ['delete_branch_on_merge']:
+                if test in settings:
+                    settings['test'][test] = settings[test]
+                    del settings[test]
             for feature in ['has_issues', 'has_wiki', 'has_downloads', 'has_projects']:
                 if feature in settings:
                     settings['features'][feature] = settings[feature]
