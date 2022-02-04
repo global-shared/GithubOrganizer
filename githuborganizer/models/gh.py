@@ -251,9 +251,6 @@ class Repository:
             delete_branch_on_merge = organizer_settings.get('test', {}).get('delete_branch_on_merge', None)
         )
 
-    def delete_branch_on_merge(self):
-        organizer_settings = self.get_organizer_settings()
-
     def update_default_branch(self):
         org_settings = self.get_organizer_settings()
         if 'branches' not in org_settings:
