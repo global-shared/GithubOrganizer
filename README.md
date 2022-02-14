@@ -211,7 +211,7 @@ Branch protection has a lot of potential configuration options, including:
 In addition the `required_status_checks` has a few options of its own -
 
 - **strict**: requires a pull request to be up to date with the branch before it can be merged.
-- **context**: when empty all tests must pass, otherwise it takes an array individual tests (such ci/circleci or coverage/coveralls) which must pass.
+- **context**: when empty all tests must pass, otherwise it takes an array individual tests (such `ci/circleci` or `coverage/coveralls`) which must pass.
 - **require_review**: when set to true at least one review must occur before a pull request can be merged into the branch.
 
 ```yml
